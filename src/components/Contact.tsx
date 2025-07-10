@@ -168,7 +168,7 @@ const TestimonialsSection = () => {
                 </button>
           <div
             ref={scrollRef}
-            className="flex gap-8 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
+            className="flex gap-4 md:gap-8 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
             style={{ scrollSnapType: 'x mandatory', msOverflowStyle: 'none', scrollbarWidth: 'none' }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -176,7 +176,7 @@ const TestimonialsSection = () => {
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl shadow p-8 border border-gray-100 flex flex-col items-center min-w-[320px] max-w-[350px] flex-shrink-0 scroll-snap-align-start"
+                className="bg-white rounded-xl shadow p-4 md:p-8 border border-gray-100 flex flex-col items-center min-w-[90vw] max-w-[95vw] md:min-w-[320px] md:max-w-[350px] flex-shrink-0 scroll-snap-align-start mx-2"
               >
                 <p className="text-lg text-gray-700 mb-6 text-center">{t.quote}</p>
                 <div className="font-bold text-blue-700">{t.name}</div>
