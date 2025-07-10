@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/dawnreach-logo.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,11 +30,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl md:text-3xl font-bold gradient-text">
-              DawnReach
-            </h1>
-            <p className="text-xs text-gray-600 -mt-1">Marketing</p>
+          <div className="flex-shrink-0 flex items-center">
+            <img 
+              src={logo} 
+              alt="DawnReach Marketing" 
+              className="h-10 md:h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -54,7 +56,9 @@ const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <a
-              href="#contact"
+              href="https://wa.me/254707110192?text=Hi%20DawnReach%20Marketing!%20I'm%20interested%20in%20your%20digital%20marketing%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20transform%20my%20business?"
+              target="_blank"
+              rel="noopener noreferrer"
               className="gradient-bg text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               Get Started
@@ -87,7 +91,9 @@ const Navigation = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="https://wa.me/254707110192?text=Hi%20DawnReach%20Marketing!%20I'm%20interested%20in%20your%20digital%20marketing%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20transform%20my%20business?"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block px-3 py-2 gradient-bg text-white rounded-lg font-medium text-center mt-4"
                 onClick={() => setIsOpen(false)}
               >
