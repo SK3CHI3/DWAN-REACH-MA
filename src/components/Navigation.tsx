@@ -31,7 +31,9 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <img src={logo} alt="DawnReach Marketing" className="h-20 md:h-28 w-60 md:w-80 object-contain" />
+            <div className="bg-white p-3 rounded-2xl shadow-md flex items-center justify-center">
+              <img src={logo} alt="DawnReach Marketing" className="h-24 md:h-36 w-72 md:w-[28rem] object-contain" />
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -52,9 +54,7 @@ const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <a
-              href="https://wa.me/254707110192?text=Hi%20DawnReach%20Marketing!%20I'm%20interested%20in%20your%20digital%20marketing%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20transform%20my%20business?"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#services"
               className="gradient-bg text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               Get Started
@@ -87,9 +87,7 @@ const Navigation = () => {
                 </a>
               ))}
               <a
-                href="https://wa.me/254707110192?text=Hi%20DawnReach%20Marketing!%20I'm%20interested%20in%20your%20digital%20marketing%20services.%20Can%20we%20discuss%20how%20you%20can%20help%20transform%20my%20business?"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#services"
                 className="block px-3 py-2 gradient-bg text-white rounded-lg font-medium text-center mt-4"
                 onClick={() => setIsOpen(false)}
               >
