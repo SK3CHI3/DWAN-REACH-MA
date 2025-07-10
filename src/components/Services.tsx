@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Smartphone, 
@@ -134,8 +133,23 @@ const Services = () => {
   );
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 floating">
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl transform rotate-12 opacity-20"></div>
+        </div>
+        <div className="absolute top-60 right-20 floating-delayed">
+          <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full opacity-20"></div>
+        </div>
+        <div className="absolute bottom-40 left-1/4 floating-delayed-2">
+          <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl transform -rotate-12 opacity-20"></div>
+        </div>
+        <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full blur-3xl pulse-glow"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-orange-400/20 to-pink-600/20 rounded-full blur-3xl pulse-glow"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
@@ -52,8 +51,23 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-24 left-12 floating">
+          <div className="w-15 h-15 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl transform rotate-12 opacity-20"></div>
+        </div>
+        <div className="absolute top-96 right-24 floating-delayed">
+          <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full opacity-20"></div>
+        </div>
+        <div className="absolute bottom-48 left-1/3 floating-delayed-2">
+          <div className="w-18 h-18 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl transform -rotate-45 opacity-20"></div>
+        </div>
+        <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl pulse-glow"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-52 h-52 bg-gradient-to-r from-orange-400/20 to-red-600/20 rounded-full blur-3xl pulse-glow"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

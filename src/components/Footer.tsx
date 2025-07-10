@@ -29,8 +29,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none opacity-30">
+        <div className="absolute top-16 left-8 floating">
+          <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg transform rotate-12 opacity-40"></div>
+        </div>
+        <div className="absolute top-32 right-16 floating-delayed">
+          <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full opacity-40"></div>
+        </div>
+        <div className="absolute bottom-24 left-1/4 floating-delayed-2">
+          <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl transform -rotate-45 opacity-40"></div>
+        </div>
+        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-gradient-to-r from-blue-400/10 to-purple-600/10 rounded-full blur-3xl pulse-glow"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-40 h-40 bg-gradient-to-r from-orange-400/10 to-red-600/10 rounded-full blur-3xl pulse-glow"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}

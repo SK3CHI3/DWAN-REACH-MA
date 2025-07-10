@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Target, Eye, Heart, Users, Lightbulb, Rocket } from 'lucide-react';
 
@@ -34,8 +33,23 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative py-20 bg-gradient-to-br from-orange-50 via-white to-blue-50 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-32 right-16 floating">
+          <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl transform rotate-45 opacity-20"></div>
+        </div>
+        <div className="absolute top-80 left-16 floating-delayed">
+          <div className="w-18 h-18 bg-gradient-to-r from-blue-500 to-teal-500 rounded-2xl transform -rotate-12 opacity-20"></div>
+        </div>
+        <div className="absolute bottom-32 right-1/4 floating-delayed-2">
+          <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full opacity-20"></div>
+        </div>
+        <div className="absolute top-1/4 left-1/3 w-56 h-56 bg-gradient-to-r from-orange-400/20 to-red-600/20 rounded-full blur-3xl pulse-glow"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full blur-3xl pulse-glow"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
