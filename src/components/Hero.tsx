@@ -77,13 +77,13 @@ const Hero = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <a
-              href="https://wa.me/254707110192?text=Hi!%20I'd%20love%20to%20learn%20more%20about%20DawnReach%20Marketing%20and%20your%20success%20stories.%20Can%20you%20share%20more%20details%20about%20your%20approach?"
+              href="https://wa.me/254707110192?text=Hi%20DawnReach!%20I%E2%80%99d%20like%20a%20quote%20for%20your%20digital%20marketing%20services.%20Here%E2%80%99s%20what%20I%20need%3A"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white/80 backdrop-blur-sm text-gray-900 px-8 py-4 rounded-full font-semibold text-lg border border-gray-200/50 hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
             >
-              <Play className="w-5 h-5" />
-              <span>Learn More</span>
+              <ArrowRight className="w-5 h-5" />
+              <span>Get Quote</span>
             </a>
           </div>
 

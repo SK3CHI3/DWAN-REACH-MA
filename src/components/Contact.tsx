@@ -38,34 +38,34 @@ const testimonials = [
 ];
 
 const ContactSection = () => (
-  <section id="contact" className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
-    {/* Animated Background Elements */}
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-24 left-12 floating">
-        <div className="w-15 h-15 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl transform rotate-12 opacity-20"></div>
+    <section id="contact" className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-24 left-12 floating">
+          <div className="w-15 h-15 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl transform rotate-12 opacity-20"></div>
+        </div>
+        <div className="absolute top-96 right-24 floating-delayed">
+          <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full opacity-20"></div>
+        </div>
+        <div className="absolute bottom-48 left-1/3 floating-delayed-2">
+          <div className="w-18 h-18 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl transform -rotate-45 opacity-20"></div>
+        </div>
+        <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl pulse-glow"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-52 h-52 bg-gradient-to-r from-orange-400/20 to-red-600/20 rounded-full blur-3xl pulse-glow"></div>
       </div>
-      <div className="absolute top-96 right-24 floating-delayed">
-        <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full opacity-20"></div>
-      </div>
-      <div className="absolute bottom-48 left-1/3 floating-delayed-2">
-        <div className="w-18 h-18 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl transform -rotate-45 opacity-20"></div>
-      </div>
-      <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl pulse-glow"></div>
-      <div className="absolute bottom-1/4 left-1/2 w-52 h-52 bg-gradient-to-r from-orange-400/20 to-red-600/20 rounded-full blur-3xl pulse-glow"></div>
-    </div>
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Section Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Get In <span className="gradient-text">Touch</span>
-        </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Ready to transform your digital presence? Let's discuss how we can help your business reach new heights.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Get In <span className="gradient-text">Touch</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Ready to transform your digital presence? Let's discuss how we can help your business reach new heights.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Contact Information + Action Buttons */}
-        <div className="space-y-8 lg:col-span-2 max-w-lg mx-auto">
+        <div className="space-y-8 lg:col-span-2 max-w-2xl px-8 mx-auto">
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <a
@@ -92,9 +92,9 @@ const ContactSection = () => (
               <Mail className="w-6 h-6" />
               <span>Email</span>
             </a>
-          </div>
+            </div>
           {/* Quick Stats */}
-          <div className="bg-white rounded-xl p-4 border border-gray-100 mt-8">
+          <div className="bg-white rounded-xl p-8 max-w-2xl mx-auto border border-gray-100 mt-8">
             <h4 className="font-semibold text-gray-900 mb-2 text-base">Why Choose DawnReach?</h4>
             <div className="grid grid-cols-2 gap-2">
               <div className="text-center">
@@ -109,15 +109,15 @@ const ContactSection = () => (
                 <div className="text-xl font-bold gradient-text">3+</div>
                 <div className="text-xs text-gray-600">Years Experience</div>
               </div>
-              <div className="text-center">
+                <div className="text-center">
                 <div className="text-xl font-bold gradient-text">50+</div>
                 <div className="text-xs text-gray-600">Projects Delivered</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+                  </div>
+                  </div>
+                </div>
   </section>
 );
 
@@ -159,13 +159,13 @@ const TestimonialsSection = () => {
           What Our Clients Say
         </h2>
         <div className="relative">
-          <button
+                <button
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow hover:bg-blue-100 transition hidden md:block"
             onClick={() => scroll('left')}
             aria-label="Scroll testimonials left"
-          >
+                >
             <FaChevronLeft className="w-5 h-5 text-blue-500" />
-          </button>
+                </button>
           <div
             ref={scrollRef}
             className="flex gap-8 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
