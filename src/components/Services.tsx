@@ -137,7 +137,7 @@ const Services = () => {
 
   const ServiceCard = ({ service, index, onLearnMore }: { service: any, index: number, onLearnMore?: (service: any) => void }) => (
     <div 
-      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 min-h-[340px] flex flex-col"
+      className="group relative bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 min-h-[320px] sm:min-h-[340px] flex flex-col w-full max-w-xs mx-auto"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Gradient Background on Hover */}
@@ -184,19 +184,19 @@ const Services = () => {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={onClose}>
         <div
-          className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-fade-in"
+          className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-4 sm:p-8 relative animate-fade-in scale-95 sm:scale-100 transition-transform duration-200 max-h-[90vh] my-6 overflow-y-auto mt-20 sm:mt-32"
           ref={modalRef}
           tabIndex={-1}
           onClick={e => e.stopPropagation()}
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+            className="sticky top-2 float-right right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none z-10 bg-white/80 rounded-full px-2"
             aria-label="Close"
           >
             ×
           </button>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center pt-4 sm:pt-0">
             <div className="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
               <service.icon className="w-8 h-8 text-white" />
             </div>
@@ -231,22 +231,22 @@ const Services = () => {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={onClose}>
         <div
-          className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 relative animate-fade-in"
+          className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl p-4 sm:p-8 relative animate-fade-in scale-95 sm:scale-100 transition-transform duration-200 max-h-[90vh] my-6 overflow-y-auto mt-20 sm:mt-32"
           ref={modalRef}
           tabIndex={-1}
           onClick={e => e.stopPropagation()}
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+            className="sticky top-2 float-right right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none z-10 bg-white/80 rounded-full px-2"
             aria-label="Close"
           >
             ×
           </button>
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center pt-4 sm:pt-0">
             {type === 'marketing' ? 'More Digital Marketing Services' : 'More Training & Academy'}
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2 sm:px-0 place-items-center">
             {services.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} onLearnMore={(s) => { onClose(); setTimeout(() => setModalService(s), 200); }} />
             ))}
