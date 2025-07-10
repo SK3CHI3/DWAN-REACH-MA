@@ -15,8 +15,8 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Services = () => {
-  const [showAll, setShowAll] = useState(false);
   const [modalService, setModalService] = useState(null);
+  const [seeMoreModal, setSeeMoreModal] = useState(null); // 'marketing' | 'training' | null
 
   const marketingServices = [
     {
@@ -232,18 +232,15 @@ const Services = () => {
               {mainMarketing.map((service, index) => (
                 <ServiceCard key={index} service={service} index={index} />
               ))}
-              {showAll && moreMarketing.map((service, index) => (
-                <ServiceCard key={index + mainMarketing.length} service={service} index={index + mainMarketing.length} />
-              ))}
             </div>
           </div>
           {moreMarketing.length > 0 && (
             <div className="flex justify-center mt-8">
               <button
-                onClick={() => setShowAll((v) => !v)}
+                onClick={() => setSeeMoreModal('marketing')}
                 className="px-6 py-2 rounded-full font-semibold gradient-bg text-white shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                {showAll ? 'Show Less' : 'See More Services'}
+                See More Services
               </button>
             </div>
           )}
@@ -259,22 +256,42 @@ const Services = () => {
               {mainTraining.map((service, index) => (
                 <ServiceCard key={index} service={service} index={index} />
               ))}
-              {showAll && moreTraining.map((service, index) => (
-                <ServiceCard key={index + mainTraining.length} service={service} index={index + mainTraining.length} />
-              ))}
             </div>
           </div>
           {moreTraining.length > 0 && (
             <div className="flex justify-center mt-8">
               <button
-                onClick={() => setShowAll((v) => !v)}
+                onClick={() => setSeeMoreModal('training')}
                 className="px-6 py-2 rounded-full font-semibold gradient-bg text-white shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                {showAll ? 'Show Less' : 'See More Training'}
+                See More Training
               </button>
             </div>
           )}
         </div>
+
+        {/* See More Modal */}
+        {seeMoreModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 relative animate-fade-in">
+              <button
+                onClick={() => setSeeMoreModal(null)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+                aria-label="Close"
+              >
+                ×
+              </button>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                {seeMoreModal === 'marketing' ? 'More Digital Marketing Services' : 'More Training & Academy'}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {(seeMoreModal === 'marketing' ? moreMarketing : moreTraining).map((service, index) => (
+                  <ServiceCard key={index} service={service} index={index} />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* CTA Section */}
         <div className="text-center mt-16">
