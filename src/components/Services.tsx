@@ -7,6 +7,7 @@ import {
   Palette, 
   Globe, 
   Mail,
+  Camera,
   TrendingUp,
   GraduationCap,
   Users,
@@ -50,6 +51,12 @@ const Services = () => {
       title: 'Email Marketing',
       description: 'Automated email campaigns and sequences that nurture leads and drive conversions.',
       features: ['Email Automation', 'Campaign Design', 'List Management']
+    },
+    {
+      icon: Camera,
+      title: 'Professional Photography & Video',
+      description: 'High-quality corporate event photography and videography for brand storytelling.',
+      features: ['Corporate Events', 'Brand Photography', 'Video Production']
     }
   ];
 
