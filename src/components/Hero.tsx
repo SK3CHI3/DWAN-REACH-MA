@@ -66,15 +66,16 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <a
-              href="https://wa.me/254707110192?text=Hi%20DawnReach%20Marketing!%20I'd%20like%20to%20explore%20your%20services%20and%20see%20how%20you%20can%20help%20grow%20my%20business.%20Can%20we%20schedule%20a%20consultation?"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                const el = document.getElementById('services');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="group gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
             >
               <span>Explore Services</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
             <a
               href="https://wa.me/254707110192?text=Hi!%20I'd%20love%20to%20learn%20more%20about%20DawnReach%20Marketing%20and%20your%20success%20stories.%20Can%20you%20share%20more%20details%20about%20your%20approach?"
               target="_blank"
