@@ -246,7 +246,7 @@ const Services = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center pt-4 sm:pt-0">
             {type === 'marketing' ? 'More Digital Marketing Services' : 'More Training & Academy'}
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2 sm:px-0 place-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 px-2 sm:px-0 place-items-center">
             {services.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} onLearnMore={(s) => { onClose(); setTimeout(() => setModalService(s), 200); }} />
             ))}
