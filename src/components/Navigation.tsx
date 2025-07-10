@@ -31,7 +31,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <img src={logo} alt="DawnReach Marketing" className="h-24 md:h-36 w-72 md:w-[28rem] object-contain" />
+            <img src={logo} alt="DawnReach Marketing" className="h-32 md:h-48 w-96 md:w-[36rem] object-contain" />
           </div>
 
           {/* Desktop Navigation */}

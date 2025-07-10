@@ -135,7 +135,7 @@ const About = () => {
                 <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-white font-bold text-2xl">AM</span>
                 </div>
-                <h4 className="text-xl font-bold mb-2">Alphonse Mondi</h4>
+                <h4 className="text-xl font-bold mb-2">Alphonse Omondi</h4>
                 <p className="text-gray-600">Founder & Digital Marketing Strategist</p>
                 <p className="text-sm text-gray-500 mt-2">Leading digital transformation for East African businesses</p>
               </div>
