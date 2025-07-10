@@ -1,73 +1,57 @@
-# Welcome to your Lovable project
+# DawnReach Marketing Website
 
-## Project info
+A modern, SEO-optimized digital marketing agency website built with Vite, React, TypeScript, shadcn-ui, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/47dde2b3-891e-4d84-b0c2-67495216db93
+## Features
+- Responsive, modern design
+- Custom DawnReach logo and favicon
+- SEO-optimized meta tags and keywords
+- Carousel testimonials section (auto-scroll, swipe, and arrow navigation)
+- Ready for Netlify deployment
 
-## How can I edit this code?
+## Getting Started
 
-There are several ways of editing your application.
+### Prerequisites
+- Node.js & npm installed ([get Node.js](https://nodejs.org/))
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/47dde2b3-891e-4d84-b0c2-67495216db93) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+### Local Development
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Building for Production
+```sh
+npm run build
+```
+The optimized site will be in the `dist` directory.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deployment (Netlify)
+1. Push your code to GitHub (or your preferred Git provider).
+2. Go to [Netlify](https://app.netlify.com/) and create a new site from your repo.
+3. Set the build command to `npm run build` and the publish directory to `dist`.
+4. (Optional) Set up a custom domain in Netlify settings.
 
-**Use GitHub Codespaces**
+## Project Highlights
+- **Logo:** Uses the official DawnReach logo as both the site header and favicon.
+- **SEO:** Enhanced with relevant keywords, meta tags, and Open Graph/Twitter card support.
+- **Testimonials:** Features a horizontally scrollable, auto-playing carousel for client testimonials.
+- **No Lovable references:** All previous Lovable-specific content and links have been removed.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Technologies Used
+- [Vite](https://vitejs.dev/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn-ui](https://ui.shadcn.com/)
 
-## What technologies are used for this project?
+---
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/47dde2b3-891e-4d84-b0c2-67495216db93) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For any questions or support, contact [DawnReach Marketing](mailto:alphonesomondi7@gmail.com).

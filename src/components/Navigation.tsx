@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from '../assets/dawnreach-logo.png';
+import logo from '../assets/dawnreach-official-logo.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +31,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <img 
-              src={logo} 
-              alt="DawnReach Marketing" 
-              className="h-10 md:h-12 w-auto rounded-xl shadow-sm"
-            />
+            <img src={logo} alt="DawnReach Marketing" className="h-20 md:h-28 w-60 md:w-80 object-contain" />
           </div>
 
           {/* Desktop Navigation */}

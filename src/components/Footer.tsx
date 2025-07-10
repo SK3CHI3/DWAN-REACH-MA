@@ -163,24 +163,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="py-8 border-t border-gray-800">
-          <div className="text-center">
-            <h4 className="text-xl font-semibold mb-4">Stay Updated</h4>
-            <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-              Subscribe to our newsletter for the latest digital marketing tips, industry insights, and exclusive offers.
-            </p>
-            <div className="max-w-md mx-auto flex space-x-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <button className="gradient-bg px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+        {/* Removed newsletter signup section as requested */}
 
         {/* Bottom Bar */}
         <div className="py-6 border-t border-gray-800">

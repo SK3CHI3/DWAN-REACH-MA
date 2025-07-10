@@ -1,271 +1,207 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import DawnReachLogo from './DawnReachLogo';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const testimonials = [
+  {
+    quote: '“DawnReach transformed our online presence. We saw real results in just a few months!”',
+    name: 'Jane Mwangi',
+    role: 'Marketing Lead, Acme Corp',
+  },
+  {
+    quote: '“Professional, creative, and always responsive. Highly recommended for digital marketing.”',
+    name: 'Samuel Otieno',
+    role: 'CEO, Startup Hub',
+  },
+  {
+    quote: '“Their training programs helped our team upskill and deliver better campaigns.”',
+    name: 'Linda Wanjiru',
+    role: 'Brand Manager, RetailPro',
+  },
+  {
+    quote: '“We doubled our Instagram engagement after working with DawnReach. Their strategies work!”',
+    name: 'Brian Kimani',
+    role: 'Social Media Manager, TrendyWear',
+  },
+  {
+    quote: '“The team at DawnReach is knowledgeable and always available. Our campaigns have never been better.”',
+    name: 'Grace Njeri',
+    role: 'Digital Lead, FinTech Africa',
+  },
+  {
+    quote: '“From branding to paid ads, DawnReach delivered results at every step. Highly recommended!”',
+    name: 'Peter Oloo',
+    role: 'Founder, Oloo Foods',
+  },
+];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
-      });
-    }, 3000);
+const ContactSection = () => (
+  <section id="contact" className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    {/* Animated Background Elements */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-24 left-12 floating">
+        <div className="w-15 h-15 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl transform rotate-12 opacity-20"></div>
+      </div>
+      <div className="absolute top-96 right-24 floating-delayed">
+        <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full opacity-20"></div>
+      </div>
+      <div className="absolute bottom-48 left-1/3 floating-delayed-2">
+        <div className="w-18 h-18 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl transform -rotate-45 opacity-20"></div>
+      </div>
+      <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl pulse-glow"></div>
+      <div className="absolute bottom-1/4 left-1/2 w-52 h-52 bg-gradient-to-r from-orange-400/20 to-red-600/20 rounded-full blur-3xl pulse-glow"></div>
+    </div>
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Section Header */}
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Get In <span className="gradient-text">Touch</span>
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Ready to transform your digital presence? Let's discuss how we can help your business reach new heights.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Contact Information + Action Buttons */}
+        <div className="space-y-8 lg:col-span-2 max-w-lg mx-auto">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <a
+              href="https://wa.me/254707110192?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20digital%20marketing%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center space-x-4 p-4 bg-green-500 hover:bg-green-600 rounded-xl shadow-sm border-2 border-green-600 text-white font-semibold text-base transition-all"
+              style={{ boxShadow: '0 2px 8px 0 rgba(37, 211, 102, 0.15)' }}
+            >
+              <FaWhatsapp className="w-6 h-6" />
+              <span>WhatsApp <span className="ml-2 px-2 py-0.5 rounded bg-white/20 text-xs font-bold border border-white/30">Fastest</span></span>
+            </a>
+            <a
+              href="tel:+254707110192"
+              className="flex-1 flex items-center justify-center space-x-4 p-4 bg-blue-500 hover:bg-blue-600 rounded-xl shadow-sm border-2 border-blue-600 text-white font-semibold text-base transition-all"
+            >
+              <Phone className="w-6 h-6" />
+              <span>Call</span>
+            </a>
+            <a
+              href="mailto:alphonesomondi7@gmail.com?subject=Inquiry%20from%20Website&body=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+              className="flex-1 flex items-center justify-center space-x-4 p-4 bg-orange-500 hover:bg-orange-600 rounded-xl shadow-sm border-2 border-orange-600 text-white font-semibold text-base transition-all"
+            >
+              <Mail className="w-6 h-6" />
+              <span>Email</span>
+            </a>
+          </div>
+          {/* Quick Stats */}
+          <div className="bg-white rounded-xl p-4 border border-gray-100 mt-8">
+            <h4 className="font-semibold text-gray-900 mb-2 text-base">Why Choose DawnReach?</h4>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="text-center">
+                <div className="text-xl font-bold gradient-text">24h</div>
+                <div className="text-xs text-gray-600">Response Time</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl font-bold gradient-text">95%</div>
+                <div className="text-xs text-gray-600">Client Satisfaction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl font-bold gradient-text">3+</div>
+                <div className="text-xs text-gray-600">Years Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl font-bold gradient-text">50+</div>
+                <div className="text-xs text-gray-600">Projects Delivered</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const TestimonialsSection = () => {
+  const scrollRef = React.useRef(null);
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  const scroll = (direction) => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
+    const scrollAmount = clientWidth * 0.9;
+    if (direction === 'left') {
+      scrollRef.current.scrollTo({ left: scrollLeft - scrollAmount, behavior: 'smooth' });
+    } else {
+      scrollRef.current.scrollTo({ left: scrollLeft + scrollAmount, behavior: 'smooth' });
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const services = [
-    'Social Media Management',
-    'Content Creation',
-    'Paid Advertising',
-    'Branding & Design',
-    'Website Design & SEO',
-    'Email Marketing',
-    'Marketing Training',
-    'Corporate Training',
-    '1-on-1 Coaching',
-    'Certification Programs'
-  ];
+  // Auto-scroll effect
+  React.useEffect(() => {
+    if (isHovered) return; // Pause on hover
+    const interval = setInterval(() => {
+      if (!scrollRef.current) return;
+      const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
+      // If at end, scroll back to start
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollRef.current.scrollTo({ left: scrollLeft + clientWidth * 0.9, behavior: 'smooth' });
+      }
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   return (
-    <section id="contact" className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-24 left-12 floating">
-          <div className="w-15 h-15 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl transform rotate-12 opacity-20"></div>
-        </div>
-        <div className="absolute top-96 right-24 floating-delayed">
-          <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full opacity-20"></div>
-        </div>
-        <div className="absolute bottom-48 left-1/3 floating-delayed-2">
-          <div className="w-18 h-18 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl transform -rotate-45 opacity-20"></div>
-        </div>
-        <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-gradient-to-r from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl pulse-glow"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-52 h-52 bg-gradient-to-r from-orange-400/20 to-red-600/20 rounded-full blur-3xl pulse-glow"></div>
-      </div>
-      
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Get In <span className="gradient-text">Touch</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your digital presence? Let's discuss how we can help your business reach new heights.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Let's Start a Conversation</h3>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Whether you're looking to boost your digital marketing efforts or want to learn new skills through our training programs, we're here to help you succeed.
-              </p>
-            </div>
-
-            {/* Contact Details */}
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-                <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">+254 707 110 192</p>
-                  <p className="text-sm text-gray-500">Available Mon-Fri, 9AM-6PM EAT</p>
-                </div>
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+          What Our Clients Say
+        </h2>
+        <div className="relative">
+          <button
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow hover:bg-blue-100 transition hidden md:block"
+            onClick={() => scroll('left')}
+            aria-label="Scroll testimonials left"
+          >
+            <FaChevronLeft className="w-5 h-5 text-blue-500" />
+          </button>
+          <div
+            ref={scrollRef}
+            className="flex gap-8 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
+            style={{ scrollSnapType: 'x mandatory', msOverflowStyle: 'none', scrollbarWidth: 'none' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {testimonials.map((t, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl shadow p-8 border border-gray-100 flex flex-col items-center min-w-[320px] max-w-[350px] flex-shrink-0 scroll-snap-align-start"
+              >
+                <p className="text-lg text-gray-700 mb-6 text-center">{t.quote}</p>
+                <div className="font-bold text-blue-700">{t.name}</div>
+                <div className="text-sm text-gray-500">{t.role}</div>
               </div>
-
-              <div className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-                <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                  <p className="text-gray-600">alphonesomondi7@gmail.com</p>
-                  <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-                <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                  <p className="text-gray-600">Kenya</p>
-                  <p className="text-sm text-gray-500">Serving East Africa & Beyond</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100">
-              <h4 className="font-semibold text-gray-900 mb-4">Why Choose DawnReach?</h4>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold gradient-text">24h</div>
-                  <div className="text-sm text-gray-600">Response Time</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold gradient-text">95%</div>
-                  <div className="text-sm text-gray-600">Client Satisfaction</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold gradient-text">3+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold gradient-text">50+</div>
-                  <div className="text-sm text-gray-600">Projects Delivered</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-
-          {/* Contact Form */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
-            {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Send us a Message</h3>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                      placeholder="Your full name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                      placeholder="+254 xxx xxx xxx"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                      Service Interested In
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    >
-                      <option value="">Select a service</option>
-                      {services.map((service) => (
-                        <option key={service} value={service}>
-                          {service}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Tell us about your project or goals..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full gradient-bg text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center space-x-2"
-                >
-                  <Send className="w-5 h-5" />
-                  <span>Send Message</span>
-                </button>
-              </form>
-            ) : (
-              <div className="text-center py-12">
-                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Message Sent!</h3>
-                <p className="text-gray-600 mb-6">
-                  Thank you for reaching out. We'll get back to you within 24 hours.
-                </p>
-                <div className="w-12 h-1 gradient-bg rounded-full mx-auto"></div>
-              </div>
-            )}
-          </div>
+          <button
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow hover:bg-blue-100 transition hidden md:block"
+            onClick={() => scroll('right')}
+            aria-label="Scroll testimonials right"
+          >
+            <FaChevronRight className="w-5 h-5 text-blue-500" />
+          </button>
         </div>
       </div>
     </section>
   );
 };
+
+const Contact = () => (
+  <>
+    <ContactSection />
+    <TestimonialsSection />
+  </>
+);
 
 export default Contact;
