@@ -52,7 +52,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="mb-6 flex items-center justify-start">
-              <div className="bg-white p-3 rounded-2xl shadow-md flex items-center justify-center">
+              <div className="bg-white h-24 md:h-36 w-72 md:w-[28rem] rounded-2xl shadow-md flex items-center justify-center">
                 <img src={logo} alt="DawnReach Marketing" className="h-24 md:h-36 w-72 md:w-[28rem] object-contain" />
               </div>
             </div>
