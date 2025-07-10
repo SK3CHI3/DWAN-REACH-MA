@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Smartphone, 
   PenTool, 
@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 
 const Services = () => {
+  const [showAll, setShowAll] = useState(false);
+
   const marketingServices = [
     {
       icon: Smartphone,
@@ -57,6 +59,18 @@ const Services = () => {
       description: 'High-quality corporate event photography and videography for brand storytelling.',
       features: ['Corporate Events', 'Brand Photography', 'Video Production']
     }
+  ];
+
+  const mainMarketing = [
+    marketingServices[0], // Social Media Management
+    marketingServices[1], // Content Creation
+    marketingServices[2], // Paid Advertising
+  ];
+  const moreMarketing = [
+    marketingServices[3], // Branding & Design (now in see more)
+    marketingServices[4],
+    marketingServices[5],
+    marketingServices[6],
   ];
 
   const trainingServices = [
@@ -166,10 +180,23 @@ const Services = () => {
             Digital Marketing Services
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {marketingServices.map((service, index) => (
+            {mainMarketing.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} />
             ))}
+            {showAll && moreMarketing.map((service, index) => (
+              <ServiceCard key={index + mainMarketing.length} service={service} index={index + mainMarketing.length} />
+            ))}
           </div>
+          {moreMarketing.length > 0 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll((v) => !v)}
+                className="px-6 py-2 rounded-full font-semibold gradient-bg text-white shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {showAll ? 'Show Less' : 'See More Services'}
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Training Services */}
