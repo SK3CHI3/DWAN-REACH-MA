@@ -227,13 +227,15 @@ const Services = () => {
           <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">
             Digital Marketing Services
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mainMarketing.map((service, index) => (
-              <ServiceCard key={index} service={service} index={index} />
-            ))}
-            {showAll && moreMarketing.map((service, index) => (
-              <ServiceCard key={index + mainMarketing.length} service={service} index={index + mainMarketing.length} />
-            ))}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+              {mainMarketing.map((service, index) => (
+                <ServiceCard key={index} service={service} index={index} />
+              ))}
+              {showAll && moreMarketing.map((service, index) => (
+                <ServiceCard key={index + mainMarketing.length} service={service} index={index + mainMarketing.length} />
+              ))}
+            </div>
           </div>
           {moreMarketing.length > 0 && (
             <div className="flex justify-center mt-8">
@@ -248,17 +250,19 @@ const Services = () => {
         </div>
 
         {/* Training Services */}
-        <div>
+        <div className="mb-20">
           <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">
             Marketing Training & Academy
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {mainTraining.map((service, index) => (
-              <ServiceCard key={index} service={service} index={index} />
-            ))}
-            {showAll && moreTraining.map((service, index) => (
-              <ServiceCard key={index + mainTraining.length} service={service} index={index + mainTraining.length} />
-            ))}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+              {mainTraining.map((service, index) => (
+                <ServiceCard key={index} service={service} index={index} />
+              ))}
+              {showAll && moreTraining.map((service, index) => (
+                <ServiceCard key={index + mainTraining.length} service={service} index={index + mainTraining.length} />
+              ))}
+            </div>
           </div>
           {moreTraining.length > 0 && (
             <div className="flex justify-center mt-8">
