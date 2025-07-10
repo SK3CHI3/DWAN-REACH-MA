@@ -102,6 +102,9 @@ const Services = () => {
     }
   ];
 
+  const mainTraining = trainingServices.slice(0, 3);
+  const moreTraining = trainingServices.slice(3);
+
   const ServiceCard = ({ service, index }: { service: any, index: number }) => (
     <div 
       className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
@@ -250,10 +253,23 @@ const Services = () => {
             Marketing Training & Academy
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {trainingServices.map((service, index) => (
+            {mainTraining.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} />
             ))}
+            {showAll && moreTraining.map((service, index) => (
+              <ServiceCard key={index + mainTraining.length} service={service} index={index + mainTraining.length} />
+            ))}
           </div>
+          {moreTraining.length > 0 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll((v) => !v)}
+                className="px-6 py-2 rounded-full font-semibold gradient-bg text-white shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {showAll ? 'Show Less' : 'See More Training'}
+              </button>
+            </div>
+          )}
         </div>
 
         {/* CTA Section */}
