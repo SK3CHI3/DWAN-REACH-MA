@@ -12,9 +12,11 @@ import {
   Users,
   Award
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Services = () => {
   const [showAll, setShowAll] = useState(false);
+  const [modalService, setModalService] = useState(null);
 
   const marketingServices = [
     {
@@ -134,17 +136,60 @@ const Services = () => {
 
         {/* Learn More Link */}
         <div className="mt-6 pt-6 border-t border-gray-100">
-          <a 
-            href="#contact" 
-            className="text-primary font-medium hover:text-orange-500 transition-colors flex items-center group"
+          <button
+            onClick={() => setModalService(service)}
+            className="text-primary font-medium hover:text-orange-500 transition-colors flex items-center group focus:outline-none"
           >
-            Learn More 
+            Learn More
             <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-          </a>
+          </button>
         </div>
       </div>
     </div>
   );
+
+  // Modal for service details
+  const ServiceModal = ({ service, onClose }: { service: any, onClose: () => void }) => {
+    if (!service) return null;
+    const whatsappMsg = encodeURIComponent(`Hi DawnReach! I'm interested in your service: ${service.title}. Can you tell me more?`);
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+        <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-fade-in">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+              <service.icon className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">{service.title}</h3>
+            <p className="text-gray-600 mb-4 text-center">{service.description}</p>
+            <ul className="space-y-2 mb-6">
+              {service.features.map((feature: string, idx: number) => (
+                <li key={idx} className="flex items-center text-sm text-gray-500">
+                  <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mr-3"></div>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={`https://wa.me/254707110192?text=${whatsappMsg}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold shadow-lg transition-all duration-300 mt-2"
+            >
+              <FaWhatsapp className="w-5 h-5" />
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section id="services" className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
@@ -227,6 +272,7 @@ const Services = () => {
           </div>
         </div>
       </div>
+      {modalService && <ServiceModal service={modalService} onClose={() => setModalService(null)} />}
     </section>
   );
 };
