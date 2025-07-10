@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Smartphone, 
   PenTool, 
@@ -17,6 +17,36 @@ import { FaWhatsapp } from 'react-icons/fa';
 const Services = () => {
   const [modalService, setModalService] = useState(null);
   const [seeMoreModal, setSeeMoreModal] = useState(null); // 'marketing' | 'training' | null
+  const modalRef = useRef(null);
+
+  // Lock scroll when any modal is open
+  useEffect(() => {
+    if (modalService || seeMoreModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [modalService, seeMoreModal]);
+
+  // ESC key closes modals
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        if (modalService) setModalService(null);
+        if (seeMoreModal) setSeeMoreModal(null);
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [modalService, seeMoreModal]);
+
+  // Focus trap for modal
+  useEffect(() => {
+    if (!modalRef.current) return;
+    const focusable = modalRef.current.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusable.length) focusable[0].focus();
+  }, [modalService, seeMoreModal]);
 
   const marketingServices = [
     {
@@ -105,20 +135,18 @@ const Services = () => {
   const mainTraining = trainingServices.slice(0, 3);
   const moreTraining = trainingServices.slice(3);
 
-  const ServiceCard = ({ service, index }: { service: any, index: number }) => (
+  const ServiceCard = ({ service, index, onLearnMore }: { service: any, index: number, onLearnMore?: (service: any) => void }) => (
     <div 
-      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
+      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 min-h-[340px] flex flex-col"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Gradient Background on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col flex-1">
         {/* Icon */}
         <div className="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
           <service.icon className="w-8 h-8 text-white" />
         </div>
-
         {/* Content */}
         <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
           {service.title}
@@ -126,9 +154,8 @@ const Services = () => {
         <p className="text-gray-600 mb-4 leading-relaxed">
           {service.description}
         </p>
-
         {/* Features */}
-        <ul className="space-y-2">
+        <ul className="space-y-2 mb-4">
           {service.features.map((feature: string, idx: number) => (
             <li key={idx} className="flex items-center text-sm text-gray-500">
               <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mr-3"></div>
@@ -136,11 +163,10 @@ const Services = () => {
             </li>
           ))}
         </ul>
-
         {/* Learn More Link */}
-        <div className="mt-6 pt-6 border-t border-gray-100">
+        <div className="mt-auto pt-6 border-t border-gray-100">
           <button
-            onClick={() => setModalService(service)}
+            onClick={() => onLearnMore ? onLearnMore(service) : setModalService(service)}
             className="text-primary font-medium hover:text-orange-500 transition-colors flex items-center group focus:outline-none"
           >
             Learn More
@@ -156,8 +182,13 @@ const Services = () => {
     if (!service) return null;
     const whatsappMsg = encodeURIComponent(`Hi DawnReach! I'm interested in your service: ${service.title}. Can you tell me more?`);
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-        <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-fade-in">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={onClose}>
+        <div
+          className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-fade-in"
+          ref={modalRef}
+          tabIndex={-1}
+          onClick={e => e.stopPropagation()}
+        >
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
@@ -188,6 +219,37 @@ const Services = () => {
               <FaWhatsapp className="w-5 h-5" />
               WhatsApp Us
             </a>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // See More Modal
+  const SeeMoreModal = ({ type, onClose }: { type: 'marketing' | 'training', onClose: () => void }) => {
+    const services = type === 'marketing' ? moreMarketing : moreTraining;
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={onClose}>
+        <div
+          className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 relative animate-fade-in"
+          ref={modalRef}
+          tabIndex={-1}
+          onClick={e => e.stopPropagation()}
+        >
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            {type === 'marketing' ? 'More Digital Marketing Services' : 'More Training & Academy'}
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard key={index} service={service} index={index} onLearnMore={(s) => { onClose(); setTimeout(() => setModalService(s), 200); }} />
+            ))}
           </div>
         </div>
       </div>
@@ -230,7 +292,7 @@ const Services = () => {
           <div className="flex justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
               {mainMarketing.map((service, index) => (
-                <ServiceCard key={index} service={service} index={index} />
+                <ServiceCard key={index} service={service} index={index} onLearnMore={setModalService} />
               ))}
             </div>
           </div>
@@ -254,7 +316,7 @@ const Services = () => {
           <div className="flex justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
               {mainTraining.map((service, index) => (
-                <ServiceCard key={index} service={service} index={index} />
+                <ServiceCard key={index} service={service} index={index} onLearnMore={setModalService} />
               ))}
             </div>
           </div>
@@ -271,27 +333,7 @@ const Services = () => {
         </div>
 
         {/* See More Modal */}
-        {seeMoreModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 relative animate-fade-in">
-              <button
-                onClick={() => setSeeMoreModal(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
-                aria-label="Close"
-              >
-                ×
-              </button>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                {seeMoreModal === 'marketing' ? 'More Digital Marketing Services' : 'More Training & Academy'}
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {(seeMoreModal === 'marketing' ? moreMarketing : moreTraining).map((service, index) => (
-                  <ServiceCard key={index} service={service} index={index} />
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        {seeMoreModal && <SeeMoreModal type={seeMoreModal} onClose={() => setSeeMoreModal(null)} />}
 
         {/* CTA Section */}
         <div className="text-center mt-16">
