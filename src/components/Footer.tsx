@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import logo from '../assets/dawnreach-official-logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -50,9 +51,8 @@ const Footer = () => {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold gradient-text mb-2">DawnReach</h3>
-              <p className="text-gray-400">Marketing</p>
+            <div className="mb-6 flex items-center justify-start">
+              <img src={logo} alt="DawnReach Marketing" className="h-24 md:h-36 w-72 md:w-[28rem] object-contain" />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Empowering brands to reach new heights through innovative digital marketing solutions and comprehensive training programs.
