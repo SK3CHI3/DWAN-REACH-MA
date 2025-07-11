@@ -28,9 +28,9 @@ const Navigation = () => {
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
+        <div className="flex justify-between md:justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
+          <div className="flex-shrink-0 flex items-center w-full md:w-auto justify-center md:justify-start">
             <img src={logo} alt="DawnReach Marketing" className="h-32 md:h-48 w-96 md:w-[36rem] object-contain" />
           </div>
 
