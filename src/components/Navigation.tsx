@@ -28,9 +28,18 @@ const Navigation = () => {
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between md:justify-between items-center h-16 md:h-20">
+        <div className="flex justify-between md:justify-between items-center h-16 md:h-20 relative">
+          {/* Mobile menu button - left on mobile */}
+          <div className="md:hidden z-10">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-700 hover:text-primary focus:outline-none"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center w-full md:w-auto justify-center md:justify-start">
+          <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex-shrink-0 flex items-center justify-center">
             <img src={logo} alt="DawnReach Marketing" className="h-32 md:h-48 w-96 md:w-[36rem] object-contain" />
           </div>
 
@@ -57,16 +66,6 @@ const Navigation = () => {
             >
               Get Started
             </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
 
